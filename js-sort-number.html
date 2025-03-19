@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task JS Sort Number</title>
+
+    <!-- STYLE CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/main.css">
+    <!-- END STYLE CSS -->
+</head>
+<body>
+<main class="container container-sort">
+    <h4 class="sort-title urbanist-medium">Result Sort:</h4>
+    <h1 class="sort-result urbanist-semibold"></h1>
+</main>
+
+<!-- SCRIPT JS -->
+<script>
+    const sortResultElement = document.querySelector('.sort-result');
+
+    function sortNumber(arr) {
+        const frequency = {};
+        for (const num of arr) {
+            frequency[num] = (frequency[num] || 0) + 1;
+        }
+        return arr.slice().sort((a, b) => {
+            const freqA = frequency[a];
+            const freqB = frequency[b];
+            if (freqA !== freqB) {
+                return freqB - freqA;
+            }
+            return a - b;
+        });
+    }
+
+    const result = sortNumber([3, 1, 2, 2, 4, 1]);
+    sortResultElement.innerHTML = result;
+</script>
+<!-- END SCRIPT JS -->
+</body>
+</html>

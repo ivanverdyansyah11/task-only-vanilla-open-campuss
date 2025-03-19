@@ -40,7 +40,8 @@ body {
     justify-content: center;
 }
 
-.container-sort {
+.container-sort,
+.container-anagram {
     width: 100%;
     height: 100dvh;
     display: flex;
@@ -135,15 +136,19 @@ body {
 }
 
 .container-sort .sort-title,
-.container-sort .sort-result {
+.container-sort .sort-result,
+.container-anagram .anagram-title,
+.container-anagram .anagram-result {
     margin: 0;
 }
 
-.container-sort .sort-title {
+.container-sort .sort-title,
+.container-anagram .anagram-title {
     opacity: 0.62;
 }
 
-.container-sort .sort-result {
+.container-sort .sort-result,
+.container-anagram .anagram-result {
     font-size: 3rem;
 }
 /* END UTILITIES */

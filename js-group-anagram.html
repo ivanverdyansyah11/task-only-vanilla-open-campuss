@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task JS Sort Number</title>
+
+    <!-- STYLE CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/main.css">
+    <!-- END STYLE CSS -->
+</head>
+<body>
+<main class="container container-anagram">
+    <h4 class="anagram-title urbanist-medium">Result Anagram:</h4>
+    <h1 class="anagram-result urbanist-semibold"></h1>
+</main>
+
+<!-- SCRIPT JS -->
+<script>
+    const sortResultElement = document.querySelector('.anagram-result');
+
+    function groupAnagrams(datas) {
+        const anagramGroups = {};
+        for (const data of datas) {
+            const sortedStr = data.split('').sort().join('');
+            if (!anagramGroups[sortedStr]) {
+                anagramGroups[sortedStr] = [];
+            }
+            anagramGroups[sortedStr].push(data);
+        }
+        return Object.values(anagramGroups);
+    }
+
+    function displayAnagramGroups(anagramGroups) {
+        let html = '';
+        anagramGroups.forEach((group, index) => {
+            html += `<span class="anagram-group group-${index + 1}">[${group.join(', ')}]</span>`;
+            if (index < anagramGroups.length - 1) {
+                html += ', ';
+            }
+        });
+        return html;
+    }
+
+    const result = groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
+    sortResultElement.innerHTML = displayAnagramGroups(result);
+</script>
+<!-- END SCRIPT JS -->
+</body>
+</html>
